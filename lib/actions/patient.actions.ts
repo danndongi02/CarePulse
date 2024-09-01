@@ -56,7 +56,7 @@ export const registerPatient = async ({ identificationDocument, ...patient }: Re
 
         // Create new patient
         const newPatient = await databases.createDocument(
-            '66d10484000d045fd546', // DATABASE_ID!,
+            '66d10484000d045fd546', // DATwABASE_ID!,
             '66d104b7002e220cd35d', // PATIENT_COLLECTION_ID!,
             ID.unique(),
             {
@@ -70,6 +70,22 @@ export const registerPatient = async ({ identificationDocument, ...patient }: Re
 
     } catch (error: any) {
         console.error('Failed to register patient: ', error);
+        
+    }
+}
+
+export const getPatient = async (userId: string) => {
+    try {
+        const patients = await databases.listDocuments(
+            '66d10484000d045fd546', // DATABASE_ID!,
+            '66d104b7002e220cd35d', // PATIENT_COLLECTION_ID!,
+            [Query.equal('userId', userId)]
+        )
+
+        return parseStringify(patients.documents[0])
+        
+    } catch (error: any) {
+        console.error('Failed to get user: ', error);
         
     }
 }
