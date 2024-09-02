@@ -38,7 +38,6 @@ const PasskeyModal = () => {
 
     if (path) {
         if (accesskey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
-            const encryptedKey = encryptKey(passkey)
     
             setOpen(false)
             router.push('/admin')

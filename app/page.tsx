@@ -10,7 +10,7 @@ export default function Home({ searchParams}: SearchParamProps) {
 
   return (
     <div className="flex h-screen max-h-screen">
-      {/* TODO: OTP Verification | Passkey modal */}
+      {/* TODO: Passkey modal */}
       {isAdmin && <PasskeyModal />}
 
       
